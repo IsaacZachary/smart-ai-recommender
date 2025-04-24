@@ -1,0 +1,8 @@
+asgiref==3.8.1
+Django==5.2
+djangorestframework==3.16.0
+mysqlclient==2.2.7
+python-decouple==3.8
+sqlparse==0.5.3
+typing_extensions==4.13.2
+tzdata==2025.2
