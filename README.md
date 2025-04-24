@@ -1,207 +1,192 @@
-# 📦 Smart AI Product Recommender with M-Pesa Integration
+Here's the polished and properly formatted version of your README with all sections correctly organized:
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/yourrepo/smart-ai-recommender/actions)
-[![License](https://img.shields.io/github/license/yourrepo/smart-ai-recommender)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
-[![Node.js](https://img.shields.io/badge/node.js-18.x-brightgreen)](https://nodejs.org/)
-[![MySQL](https://img.shields.io/badge/database-MySQL-blue)](https://www.mysql.com/)
+```markdown
+# 🖥️ AI Terminal Recommender System (AI-TRS)
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-green.svg)](https://fastapi.tiangolo.com/)
+[![OpenAPI 3.0](https://img.shields.io/badge/OpenAPI-3.0-success.svg)](https://swagger.io/specification/)
+[![Build Status](https://github.com/yourusername/ai-terminal-recommender/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/ai-terminal-recommender/actions)
+[![Codecov](https://img.shields.io/codecov/c/github/yourusername/ai-terminal-recommender)](https://codecov.io/gh/yourusername/ai-terminal-recommender)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/yourusername/ai-trss)
+[![M-Pesa](https://img.shields.io/badge/payment-M--Pesa-orange.svg)](https://developer.safaricom.co.ke/)
 
-## 🚀 Overview
-
-The **Smart AI Product Recommender** is a modular web application that harnesses the power of **AI** to deliver real-time product recommendations, tailored to user behavior. It is further enhanced with **M-Pesa STK Push** integration for seamless local payment processing.
-
-The application follows a microservices architecture:
-- 🧠 **Django (Python)**: Core AI logic, user and product management.
-- 💳 **Express.js (Node.js)**: M-Pesa STK Push payments and asynchronous callback handling.
+> Terminal-style AI product recommender with natural language processing and M-Pesa tipping
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Project Overview
 
-### Backend
-- **Django** — AI logic, user authentication, admin dashboard
-- **Express.js** — Payment endpoints and integration with Safaricom Daraja
+AI-TRS is an open-source, AI-powered product recommendation platform with a command-line interface (CLI) aesthetic. It allows users to input product-related queries in any language, including slang or local dialects, and returns intelligent, contextual product suggestions from legitimate e-commerce sources. The system does not process purchases—it instead embeds product links and details. M-Pesa is integrated purely as a tipping feature for users who wish to appreciate the free service.
 
-### Database
-- **MySQL 8+** — Centralized data storage for users, products, and transactions
+**Key Innovations:**
+- 🤖 **Language-Agnostic Processing**: Understands queries in any language/dialect
+- 🔒 **Zero-Auth Architecture**: Completely anonymous usage
+- 💳 **Ethical Monetization**: Voluntary tipping only (no forced payments)
+
+### 🎯 Core Objectives
+- Provide frictionless product discovery with zero-auth requirements
+- Deliver developer-friendly CLI aesthetic with modern UX principles
+- Maintain privacy-first approach with no tracking
+- Build open ecosystem with API-first design
+
+---
+
+## 🌐 System Architecture
+
+```mermaid
+graph TD
+    A[React Frontend] -->|HTTPS| B(FastAPI Backend)
+    B --> C{AI Processing}
+    C --> D[OpenAI/Llama3]
+    C --> E[Product APIs]
+    B --> F[M-Pesa API]
+    E --> G[Jumia/Amazon]
+    F --> H[Safaricom Daraja]
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Core Components
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **Frontend** | React 18, TypeScript, TailwindCSS | CLI-style UI |
+| **Backend** | FastAPI (Python 3.10+) | API services |
+| **AI Engine** | OpenAI GPT-4-turbo + Llama 3 fallback | NLP processing |
+| **Payments** | Safaricom Daraja API | M-Pesa tipping |
+| **Caching** | Redis | Session storage |
 
 ### Key Libraries
-- **Python**: `Django`, `requests`, `python-decouple`, `mysqlclient`
-- **Node.js**: `express`, `axios`, `dotenv`, `uuid`
+| Category | Libraries |
+|----------|-----------|
+| **Python** | FastAPI, httpx, langdetect, python-mpesa |
+| **Frontend** | Framer Motion, Axios, react-markdown |
+| **DevOps** | Docker, Prometheus, GitHub Actions |
+
+### 🖥️ Frontend Specifications
+- **Framework**: React 18+ with TypeScript
+- **Styling**: Tailwind CSS with custom animations
+- **Fonts**: JetBrains Mono (monospace terminal style)
+- **Themes**: Dark (#0D0D0D) and Light (#F9FAFB) modes
+- **Key Features**: Typing animations, command history
 
 ---
 
-## 🗂️ Project Structure
+## 📂 Project Structure
 
 ```
-smart-ai-recommender/
-├── django_backend/
-│   ├── ai_recommender/          # Django project files
-│   ├── recommender_app/         # Business logic
-│   ├── manage.py
-│   ├── requirements.txt
-│   └── .env                     # Django environment variables
-├── express_backend/
-│   ├── controllers/
-│   ├── routes/
-│   ├── services/
-│   ├── app.js
-│   ├── package.json
-│   └── .env                     # Express environment variables
-├── README.md
-└── .gitignore
+ai-terminal-recommender/
+├── app/                          # FastAPI application
+│   ├── core/                     # Config and utilities
+│   ├── models/                   # Pydantic schemas
+│   ├── routes/                   # API endpoints
+│   └── services/                 # Business logic
+├── frontend/                     # React application
+│   ├── public/                   # Static assets
+│   └── src/                      # Source code
+├── tests/                        # Pytest suite
+├── docker/                       # Docker configs
+├── .github/workflows/            # CI/CD pipelines
+└── README.md                     # This file
 ```
 
 ---
 
-## ✅ Core Features
+## 🚀 Deployment
 
-- 🔍 AI-based product recommendation system
-- 💸 M-Pesa STK Push payment gateway
-- ⚡ Asynchronous payment verification and status tracking
-- 📂 Persistent storage of transactions in MySQL
-- 🛡️ CORS-enabled APIs for secure frontend communication
-- 🧮 Django admin panel for analytics and control
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- Redis 6.2+
+- Docker 20.10+
 
----
-
-## 🧰 Setup Instructions
-
-### 1. Django Backend
-
+### Quick Start
 ```bash
-cd django_backend
-python -m venv env
-source env/Scripts/activate  # Use `source env/bin/activate` on Unix
+# Clone repository
+git clone https://github.com/yourusername/ai-terminal-recommender.git
+cd ai-terminal-recommender
+
+# Backend setup
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-```
 
-### 2. Express Backend
-
-```bash
-cd express_backend
+# Frontend setup
+cd frontend
 npm install
-node app.js
+npm run dev
+
+# Run with Redis
+docker-compose up -d
 ```
 
-### 3. Environment Variables
-Create `.env` files in both Django and Express directories:
+### Environment Variables
+```ini
+# AI Configuration
+OPENAI_API_KEY=your_key_here
+LOCAL_LLM_ENABLED=false
 
-#### Django `.env`
-```
-DB_NAME=recommender
-DB_USER=root
-DB_PASSWORD=yourpassword
-DB_HOST=localhost
-```
-
-#### Express `.env`
-```
+# M-Pesa
 MPESA_CONSUMER_KEY=your_consumer_key
 MPESA_CONSUMER_SECRET=your_secret
-MPESA_PASSKEY=your_passkey
-MPESA_SHORTCODE=174379
-CALLBACK_URL=https://yourdomain.com/callback
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=yourpassword
-DB_NAME=recommender
 ```
 
 ---
 
-## 🌐 API Endpoints
+## 📡 API Documentation
 
-### `/pay` — Initiate STK Push
-- **Method**: `POST`
-- **Payload**:
-```json
-{
-  "number": "254712345678",
-  "amount": 150
-}
-```
-- **Response**:
-```json
-{
-  "message": "STK Push initiated successfully",
-  "CheckoutRequestID": "ws_CO_123456789"
-}
-```
+### Interactive Docs
+Access Swagger UI at `http://localhost:8000/docs` or Redoc at `http://localhost:8000/redoc`
 
-### `/callback` — Handle M-Pesa Confirmation
-- **Method**: `POST`
-- **Functionality**:
-  - Extracts and saves `CallbackMetadata` to MySQL
+### Key Endpoints
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/v1/recommend` | POST | Main recommendation endpoint |
+| `/v1/clarify` | POST | Follow-up question handler |
+| `/v1/tip/initiate` | POST | M-Pesa payment flow |
 
 ---
 
-## 🧮 Database Schema (MySQL)
+## 🔐 Security Considerations
 
-```sql
-CREATE TABLE payments (
-    payment_id CHAR(36) PRIMARY KEY,
-    number VARCHAR(15) NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
-    transaction_id VARCHAR(50),
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
+1. **Data Protection**
+   - End-to-end HTTPS encryption
+   - No persistent user data storage
 
----
+2. **Payment Security**
+   - M-Pesa API signature verification
+   - IP whitelisting for callbacks
 
-## 🔐 Security & Non-Functional Requirements
-
-- 🌍 CORS configured for cross-origin access
-- 📜 Logging of payment events and errors
-- ✅ Status code handling (`200`, `400`, `500`)
-- 💂 Secure credential handling via `.env`
-- 📱 Input validation (number format, amount integrity)
-- ⚙️ Scalable architecture for performance
-
----
-
-## 🚀 Free Deployment Options
-
-### Django Backend
-- 🔹 [Render](https://render.com)
-- 🔹 [Railway](https://railway.app)
-- 🔹 [Replit](https://replit.com)
-
-### Express Backend
-- 🔸 [Render](https://render.com)
-- 🔸 [Fly.io](https://fly.io)
-- 🔸 [Glitch](https://glitch.com)
-
-### MySQL Hosting
-- 🗄️ [PlanetScale](https://planetscale.com)
-- 🗄️ Google Cloud Free Tier
-- 🗄️ ClearDB (Heroku)
-
----
-
-## 🧪 Testing Tip
-
-> Use `ngrok` to expose Express server during local development. M-Pesa requires a **public HTTPS URL** for callback functionality.
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+3. **API Security**
+   - Rate limiting (100 requests/min)
+   - CORS restricted to frontend domains
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
 ## 📬 Contact
 
-Isaac Zachary — [izach.netlify.app](https://izach.netlify.app/)
+**Project Maintainer**  
+Isaac Zachary - [izach.netlify.app](https://izach.netlify.app/)
+
+**Project Link**  
+[https://github.com/IsaacZachary/ai-terminal-recommender](https://github.com/IsaacZachary/ai-terminal-recommender)
+```
