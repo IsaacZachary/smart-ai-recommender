@@ -186,4 +186,3 @@ Isaac Zachary - [izach.netlify.app](https://izach.netlify.app/)
 
 **Project Link**  
 [https://github.com/IsaacZachary/ai-terminal-recommender](https://github.com/IsaacZachary/ai-terminal-recommender)
-```
