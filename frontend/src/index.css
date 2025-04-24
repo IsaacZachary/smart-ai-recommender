@@ -1,0 +1,50 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 155 100% 50%;
+    --primary-foreground: 222 47% 10%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 155 100% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 155 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-mono;
+    font-family: 'Fira Code', monospace;
+  }
+  
+  .terminal-cursor::after {
+    content: '|';
+    animation: cursor 1.1s infinite step-end;
+  }
+  
+  @keyframes cursor {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+}
+

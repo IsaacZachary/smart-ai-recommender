@@ -1,0 +1,3 @@
+[tool.uvicorn]
+reload-dirs = ["app"]
+reload-excludes = ["frontend/*", "node_modules/*", "venv/*"] 
