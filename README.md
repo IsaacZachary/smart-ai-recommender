@@ -1,6 +1,3 @@
-Here's the polished and properly formatted version of your README with all sections correctly organized:
-
-```markdown
 # 🖥️ AI Terminal Recommender System (AI-TRS)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
